@@ -19,44 +19,43 @@ $search = array(
 	'DOM Watcher',
 	'DOM Compare',
 	'DOM Source',
-	'Reference',
+	'label="Reference"',
 
-	'Overview',
-	'Concepts',
-	'Tools',
-	'Tasks',
-	'Legal',
+	'label="Overview"',
+	'label="Concepts"',
+	'label="Tools"',
+	'label="Tasks"',
+	'label="Legal"',
 '    ',
 );
 
-//TODO Working
 $replace = array(
-	'Toolkit Framework Limitations',
-	'Launching an AJAX Application',
-	'Debugging an AJAX Application',
-	'Toolkit Framework User Guide',
-	'Extension Points Reference',
+	'ツールキット・フレームワークの制約事項',
+	'AJAX アプリケーションを起動',
+	'AJAX アプリケーションをデバッグ',
+	'ツールキット・フレームワーク・ユーザーガイド',
+	'拡張ポイント・リファレンス',
 
-	'JavaScript Debugger',
-	'Request Monitor',
-	'Mozilla Browser',
-	'JavaScript View',
-	'Browser Console',
+	'JavaScript デバッガー',
+	'リクエスト・モニター',
+	'Mozilla ブラウザー',
+	'JavaScript ビュー',
+	'ブラウザーコンソール',
 
-	'DOM Inspector',
-	'DOM Watcher',
-	'DOM Compare',
-	'DOM Source',
-	'Reference',
+	'DOM インスペクター',
+	'DOM ウォッチャー',
+	'DOM 比較',
+	'DOM ソース',
+	'label="リファレンス"',
 
-	'Overview',
-	'Concepts',
-	'Tools',
-	'Tasks',
-	'Legal',
+	'label="概要"',
+	'label="コンセプト"',
+	'label="ツール"',
+	'label="タスク"',
+	'label="リーガル"',
 "\t",
 );
 
-$ret = replaceTexts('atfToc', $search, $replace, 1);
+$ret = replaceTexts('atfToc', $search, $replace, 55);
 
 echo '<BR>end';
