@@ -1,0 +1,35 @@
+1)chk_xmltexts.php lists up translatable texts 
+  from xml files under target path.
+  You can specify the path in chk_var.php .
+  
+2)chk_translations.php lists up translation candidates 
+  from Babel database.
+  Babel database requires the "latin1" encoding,
+  not "UTF-8". And You can specify user id in chk_var.php .
+
+3-1)
+  upd_atf_xmls.php replaces texts in xml files
+  under "convert" directory for org.eclipse.atf.doc .
+
+3-2)
+  upd_pdt_xmls.php replaces texts
+  for org.eclipse.php.help .
+  (also some of com.zend.php.help )
+
+3-3)
+  upd_platform_xmls.php replaces some of texts
+  for org.eclipse.platform.doc.user .
+  (under making)
+  
+3-4)
+  upd_svn_xmls.php  replaces texts
+  for org.eclipse.team.svn.help .
+
+Where you can take Babel data dump?
+  see Babel Server weekly mysqldump on
+  http://www.eclipse.org/babel/downloads.php
+
+Thanks!
+
+Satoru Yoshida
+@strysd

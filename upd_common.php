@@ -1,6 +1,6 @@
 <?php
 /**
- * create new file that texts are replaced.
+ * create new file that texts are replaced in "convert" directory
  * @param string $file name, not includes xml extension.
  * @param array $search texts
  * @param array $replace texts
@@ -8,12 +8,12 @@
  * @return boolean
  */
 function replaceTexts($file, $search, $replace, $expected = 0) {
-	$filepath = './' . $file . '.xml';
+	$filepath = './convert/' . $file . '.xml';
 	if (!is_file($filepath)){
 		echo '<br>not exists :', $file;
 		return false;
 	}
-	$writepath = './' . $file . '_ja.xml';
+	$writepath = './convert/' . $file . '_ja.xml';
 	if (is_file($writepath)){
 		echo '<br>output already exists :', $file;
 		return false;

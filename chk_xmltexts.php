@@ -1,57 +1,34 @@
 <?php
 require_once 'chk_var.php';
+require_once 'chk_common.php';
 
-$basePath = $target_path;
-$files = scan_file($basePath);
+$basePath = $targetPath;
+$files = scanFile($basePath);
 
 foreach ($files as $file) {
-	$labels = parseFile($file);
-	if ($labels === false) {
-		printFileAttribute($file, 'unsupported');
-	} else {
-		printLabels($labels);
-	}
+	parseFile($file);
 	echo '<hr>', "\n";
 }
 
 /**
- * @param string $dir target path
- * @return array xml files
- */
-function scan_file($dir) {
-	$dir = rtrim($dir, '/') . '/';
-	$list = $tmp = array();
-	foreach(glob($dir . '*', GLOB_ONLYDIR) as $child_dir) {
-		if ($tmp = scan_file($child_dir)) {
-			$list = array_merge($list, $tmp);
-		}
-	}
-
-	foreach(glob($dir . '{*.xml}', GLOB_BRACE) as $xmlfiles) {
-		$list[] = $xmlfiles;
-	}
-
-	return $list;
-}
-
-/**
  * @param string $file
- * @return false|array labels if supported, false if not.
+ * @return void
  */
 function parseFile($file){
 	$contents = file_get_contents($file);
 	$xml = simplexml_load_string( $contents , 'SimpleXMLElement', LIBXML_NOBLANKS );
-	$labels = array();
 
 	//judges as unsupported file by root element
 	$isPlugin = $xml->xpath('/plugin');
 	if(count($isPlugin) > 0){
-		return false;
+		printFileAttribute($file, 'unsupported');
+		return;
 	}
 
 	$isProject = $xml->xpath('/project');
 	if(count($isProject) > 0){
-		return false;
+		printFileAttribute($file, 'unsupported');
+		return;
 	}
 
 	//judges as Table of Contents if root element is toc
@@ -59,12 +36,12 @@ function parseFile($file){
 	if(count($isToc) > 0){
 		printFileAttribute($file, 'Table of Contents');
 		//toc title
-		$labels[] = $isToc['0']['label'];
+		printLabel($isToc['0']['label']);
 		//various levels exist for topic
 		foreach ($xml->xpath('//topic') as $topic){
-			$labels[] = $topic['label'];
+			printLabel($topic['label']);
 		}
-		return $labels;
+		return;
 	}
 
 	//judges as Context Help if contexts element is in root
@@ -79,9 +56,9 @@ function parseFile($file){
 		printTableEnd();
 
 		foreach ($xml->xpath('/contexts/context/topic') as $topic){
-			$labels[] = $topic['label'];
+			printLabel($topic['label']);
 		}
-		return $labels;
+		return;
 	}
 
 	//judges as Simple Cheat Sheet if cheatsheet element is in root
@@ -106,15 +83,13 @@ function parseFile($file){
 		}
 		printTableEnd();
 
-		return $labels;
+		return;
 	}
 
 	//judges as Composite Cheat Sheet if compositecheatsheet element is in root
 	$isComposite = $xml->xpath('/compositeCheatsheet');
 	if(count($isComposite) > 0){
 		printFileAttribute($file, 'Composite Cheat Sheet');
-		//sheet name
-		$labels[] = $isComposite['0']['name'];
 
 		printTableHeader('group name', 'intro', 'compl.');
 		foreach ($xml->xpath('/compositeCheatsheet/taskGroup') as $taskGroup){
@@ -144,9 +119,13 @@ function parseFile($file){
 		}
 		printTableEnd();
 
-		return $labels;
+		//sheet name
+		printLabel($isComposite['0']['name']);
+
+		return;
 	}
 
+	printFileAttribute($file, 'unsupported');
 	return false;
 }
 
@@ -161,60 +140,9 @@ function printFileAttribute($file, $type) {
 }
 
 /**
- * @param string $col1
- * @param string $col2
- * @param string $col3
+ * @param string $label
  * @return void
  */
-function printTableHeader($col1, $col2, $col3 = null) {
-	echo '<table border=1><tr>',
-		 '<th>', $col1, '</th>', "\n",
-		 '<th>', $col2, '</th>', "\n";
-	if($col3 !== null){
-	echo '<th>', $col3, '</th>';
-	}
-	echo '</tr>', "\n";
-}
-
-/**
- * @param string $col1
- * @param string $col2
- * @param string $col3
- * @return void
- */
-function printTableRow($col1, $col2, $col3 = null) {
-	echo '<tr>',
-		 '<td>', $col1, '</td>', "\n",
-		 '<td>', $col2, '</td>', "\n";
-	if($col3 !== null){
-	echo '<td>', $col3, '</td>';
-	}
-	echo '</tr>', "\n";
-}
-
-/**
- * @return void
- */
-function printTableEnd() {
-	echo '</table>',"\n";
-}
-
-/**
- * @param array $labels
- * @return void
- */
-function printLabels($labels) {
-	if(count($labels) === 0){
-		return;
-	}
-	printTableHeader('topic/label', 'length');
-	foreach ($labels as $label) {
-		if(strpos($label, ' ') === false){
-			$label_for_print = 'label="' . $label . '"';
-		} else {
-			$label_for_print = $label;
-		}
-		printTableRow($label_for_print, strlen($label));
-	}
-	printTableEnd();
+function printLabel($label) {
+	echo '"', $label, '",', "\n";
 }
