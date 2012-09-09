@@ -4,6 +4,7 @@ require_once 'chk_common.php';
 require_once 'db_con.php';
 
 $basePath = $targetPath;
+$myLanguage = $languageId;
 $files = scanFile($basePath);
 $engTexts = array();
 
@@ -12,10 +13,9 @@ foreach ($files as $file) {
 	$engTexts = array_merge($engTexts, $retTexts);
 }
 
-sort($engTexts, SORT_STRING);
 $engTexts = array_unique($engTexts, SORT_STRING);
 
-printCandidate($engTexts, $languageId);
+printCandidate($engTexts, $myLanguage);
 mysql_close();
 
 /**
@@ -100,33 +100,62 @@ function parseFile($file){
  * @return void
  */
 function printCandidate($engTexts, $languageId) {
-	$in_param = implode('","', $engTexts);
 
-	$sql= ' SELECT distinct s.value as s_val, t.value as t_val '
-		. ' from strings As s inner join translations AS t '
-		. ' on s.string_id = t.string_id '
-		. ' where s.value IN ("' . $in_param . '") '
+	$sql= ' SELECT distinct length(s.value) as slen, s.value as sval, t.value as tval'
+		. ' from strings As s inner join translations AS t'
+		. ' on s.string_id = t.string_id'
+		. ' where s.value IN ("' . getList($engTexts) . '")'
 	//in my dev.
-	//  . ' and t.language_id = "' . $languageId . '" and t.is_active ';
-		. ' and s.value <> BINARY t.value '
-		. ' order by 1, 2';
+	//  . ' and t.language_id = "' . $languageId . '" and t.is_active';
+		. ' and s.value <> BINARY t.value'
+		. ' order by 1 DESC, 2 DESC, 3';//this order designed for replacing texts.
 	$result = mysql_query($sql);
 	if(!$result){
 		echo 'sql execution error:', mysql_error();
 		return;
 	}
 
-	printTableHeader('English', 'length', 'Translation candidate');
+	$replaceBefore = array();
+	$replaceAfter = array();
+
+	printTableHeader('length', 'English', 'Translation candidate');
 	while($row = mysql_fetch_row($result)){
 		//if not contains space, adds attribute name.
-		if(strpos($row[0], ' ') === false){
-			$text = 'label="' . $row[0] . '"';
-			$candidate = 'label="' . $row[1] . '"';
+		if(strpos($row[1], ' ') === false){
+			$text = 'label="' . $row[1] . '"';
+			$candidate = 'label="' . $row[2] . '"';
 		} else {
-			$text = $row[0];
-			$candidate = $row[1];
+			$text = $row[1];
+			$candidate = $row[2];
 		}
-		printTableRow($text, strlen($row[0]), $candidate);
+		printTableRow($row[0], $text, $candidate);
+
+		$replaceBefore[] = $text;
+		$replaceAfter[]  = $candidate;
 	}
 	printTableEnd();
+
+	echo '<BR>', "\n",
+	     'sample for str_replace()<BR>', "\n",
+	     "'", implode("','", $replaceBefore), "'", '<BR><BR>', "\n\n",
+	     "'", implode("','", $replaceAfter),  "'", '<BR>', "\n";
+}
+
+/**
+ * @param array $values
+ * @return string listed values.
+ */
+function getList($values) {
+	$temp1 = array();
+	$replace1 = array("\r\n" => '","', "\r" => '","', "\n" => '","',
+					  '"'  => '","');
+	$replace2 = array(',"",' => ',');
+
+	foreach ($values as $value) {
+		$temp1[] = strtr($value, $replace1);
+	}
+	$temp2 = implode('","', $temp1);
+	$ret = strtr($temp2, $replace2);
+
+	return $ret;
 }
