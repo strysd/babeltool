@@ -6,6 +6,8 @@
   from Babel database.
   Babel database requires the "latin1" encoding,
   not "UTF-8". And You can specify user id in chk_var.php .
+  
+  ("in my dev" at line 109 means I use tables removed some lines)
 
 3-1)
   upd_atf_xmls.php replaces texts in xml files
@@ -19,8 +21,7 @@
 3-3)
   upd_platform_xmls.php replaces some of texts
   for org.eclipse.platform.doc.user .
-  (under making)
-  
+
 3-4)
   upd_svn_xmls.php  replaces texts
   for org.eclipse.team.svn.help .
