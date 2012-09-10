@@ -125,6 +125,9 @@ function parseFile($file){
 		return;
 	}
 
+	//TODO introContent (Git にあり)
+	// index (webtools にあり)
+
 	printFileAttribute($file, 'unsupported');
 	return false;
 }

@@ -26,7 +26,6 @@ $search = array(
 	'label="Tools"',
 	'label="Tasks"',
 	'label="Legal"',
-'    ',
 );
 
 $replace = array(
@@ -53,9 +52,8 @@ $replace = array(
 	'label="ツール"',
 	'label="タスク"',
 	'label="リーガル"',
-"\t",
 );
 
-$ret = replaceTexts('atfToc', $search, $replace, 55);
+$ret = replaceTexts('atfToc', $search, $replace, 20);
 
 echo '<BR>end';

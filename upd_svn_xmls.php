@@ -6,11 +6,9 @@ $search = array(
 'Main feature differences between SVN® and CVS',
 'About Subversive and Subversive User Guide',
 'Ignoring resources from Version Control',
-'Ignoring resources from version control',
 'Comments and Input History Preferences',
 'Adding resources to Version Control',
 
-'Adding resources to version control',
 'New SVN Repository Location Wizard',
 'Import/Export repository locations',
 'Repository Exploring Perspective',
@@ -23,7 +21,6 @@ $search = array(
 'Label Decoration Preferences',
 
 'Working with Compare Editor',
-'Working with compare editor',
 'Connectors Discovery Wizard',
 'Revision Graph Preferences',
 'Repository Location Wizard',
@@ -84,7 +81,6 @@ $search = array(
 'main menu group',
 
 'Getting Started',
-'Getting started',
 'Tree Conflicts',
 'Special Thanks',
 'Sharing Wizard',
@@ -126,11 +122,9 @@ $replace = array(
 'SVN® と CVS との機能の主な差異',
 'Subversive について、及びユーザーガイド',
 'バージョン管理でリソースを無視',
-'バージョン管理でリソースを無視',
 'コメントおよび入力履歴設定',
 'バージョン管理にリソースを追加',
 
-'バージョン管理にリソースを追加',
 '新規 SVN リポジトリーロケーション・ウィザード',
 'リポジトリーロケーションをエクスポート・インポート',
 'リポジトリー・エクスプローリング・パースペクティブ',
@@ -142,7 +136,6 @@ $replace = array(
 'コメント・テンプレート設定',
 'ラベル修飾設定',
 
-'比較エディターで作業',
 '比較エディターで作業',
 'コネクター検出ウィザード',
 'リビジョン・グラフ設定',
@@ -204,7 +197,6 @@ $replace = array(
 'メイン・メニューグループ',
 
 'はじめに',
-'はじめに',
 'ツリー競合',
 '謝辞',
 '共用ウィザード',
@@ -243,7 +235,7 @@ $replace = array(
 );
 
 $ret = replaceTexts('compare_editor', $search, $replace, 4);
-$ret = replaceTexts('contexts', $search, $replace, 94);
+$ret = replaceTexts('contexts', $search, $replace, 102);
 $ret = replaceTexts('getting_started', $search, $replace, 2);
 $ret = replaceTexts('preferences', $search, $replace, 9);
 $ret = replaceTexts('subversion', $search, $replace, 3);

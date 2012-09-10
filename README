@@ -14,9 +14,8 @@
   under "convert" directory for org.eclipse.atf.doc .
 
 3-2)
-  upd_pdt_xmls.php replaces texts
-  for org.eclipse.php.help .
-  (also some of com.zend.php.help )
+  upd_git_xmls.php replaces some of texts
+  for org.eclipse.egit.doc .
 
 3-3)
   upd_platform_xmls.php replaces some of texts

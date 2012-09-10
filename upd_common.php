@@ -1,6 +1,6 @@
 <?php
 /**
- * create new file that texts are replaced in "convert" directory
+ * create new file that texts are replaced in "conv_in" directory
  * @param string $file name, not includes xml extension.
  * @param array $search texts
  * @param array $replace texts
@@ -8,12 +8,12 @@
  * @return boolean
  */
 function replaceTexts($file, $search, $replace, $expected = 0) {
-	$filepath = './convert/' . $file . '.xml';
+	$filepath = './conv_in/' . $file . '.xml';
 	if (!is_file($filepath)){
 		echo '<br>not exists :', $file;
 		return false;
 	}
-	$writepath = './convert/' . $file . '_ja.xml';
+	$writepath = './conv_out/' . $file . '.xml';
 	if (is_file($writepath)){
 		echo '<br>output already exists :', $file;
 		return false;
@@ -26,7 +26,7 @@ function replaceTexts($file, $search, $replace, $expected = 0) {
 	}
 
 	$count = 0;
-	$contents = str_replace ( $search, $replace, $contents, &$count );
+	$contents = str_ireplace($search, $replace, $contents, &$count);
 
 	if($expected === 0){
 		echo '<br>count in :', $file, '<br>count    : ', $count;
@@ -39,6 +39,9 @@ function replaceTexts($file, $search, $replace, $expected = 0) {
 		echo '<br>different in :', $file, '<br>count    : ', $count;
 		return false;
 	}
+	//Additional Changes
+	$contents = str_replace (array('    '), array("\t"), $contents);
+
 	try {
 		file_put_contents ( $writepath, $contents );
 	} catch (Exception $e) {
