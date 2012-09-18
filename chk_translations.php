@@ -1,11 +1,15 @@
 <?php
 require_once 'chk_var.php';
 require_once 'chk_common.php';
-require_once 'db_con.php';
 
 $basePath = $targetPath;
 $myLanguage = $languageId;
 $files = scanFile($basePath);
+if($files === false){
+	echo 'invalid path: ', $basePath;
+	return;
+}
+
 $engTexts = array();
 
 foreach ($files as $file) {
@@ -15,6 +19,7 @@ foreach ($files as $file) {
 
 $engTexts = array_unique($engTexts, SORT_STRING);
 
+require_once 'db_con.php';
 printCandidate($engTexts, $myLanguage);
 mysql_close();
 
@@ -47,6 +52,14 @@ function parseFile($file){
 			$texts[] = $topic['label'];
 		}
 		return $texts;
+	}
+
+	$isIndex = $xml->xpath('/index');
+	if(count($isIndex) > 0){
+		foreach ($xml->xpath('//topic') as $topic){
+			$texts[] = $topic['title'];
+		}
+		return array();
 	}
 
 	$isContextHelp = $xml->xpath('/contexts');
@@ -136,9 +149,9 @@ function printCandidate($engTexts, $languageId) {
 	printTableEnd();
 
 	echo '<BR>', "\n",
-	     'sample for str_replace()<BR>', "\n",
-	     "'", implode("','", $replaceBefore), "'", '<BR><BR>', "\n\n",
-	     "'", implode("','", $replaceAfter),  "'", '<BR>', "\n";
+		 'sample for str_replace()<BR>', "\n",
+		 "'", implode("','", $replaceBefore), "'", '<BR><BR>', "\n\n",
+		 "'", implode("','", $replaceAfter),  "'", '<BR>', "\n";
 }
 
 /**

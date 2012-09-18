@@ -9,21 +9,18 @@
   
   ("in my dev" at line 109 means I use tables removed some lines)
 
-3-1)
-  upd_atf_xmls.php replaces texts in xml files
-  under "convert" directory for org.eclipse.atf.doc .
+3)
+  Each upd_*.php script is related to following plug-in.
+  These scripts replace texts in xml files under conv_in folder,
+  and output to conv_out.
 
-3-2)
-  upd_git_xmls.php replaces some of texts
-  for org.eclipse.egit.doc .
-
-3-3)
-  upd_platform_xmls.php replaces some of texts
-  for org.eclipse.platform.doc.user .
-
-3-4)
-  upd_svn_xmls.php  replaces texts
-  for org.eclipse.team.svn.help .
+  upd_atf_xmls.php  : org.eclipse.atf.doc
+  upd_git_xmls.php  : org.eclipse.egit.doc
+  upd_jsdt_xmls.php : org.eclipse.wst.jsdt.doc
+  upd_platform_xmls.php : org.eclipse.platform.doc.user
+  upd_rse_xmls.php  : org.eclipse.rse.doc.user
+  upd_svn_xmls.php  : org.eclipse.team.svn.help
+  upd_wst_xmls.php  : org.eclipse.wst.doc.user
 
 Where you can take Babel data dump?
   see Babel Server weekly mysqldump on

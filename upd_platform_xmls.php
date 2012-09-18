@@ -18,6 +18,7 @@ $search = array(
 'Bookmarks View','Local History','Import Wizard',
 'Help Contents','Export Wizard','Content Types',
 'label="Compare/Patch"','label="Accessibility"','Working Sets',
+'Working with ', 'cheat sheets',
 'Text Editors','label="Perspectives"','Help Content',
 'Get Contents','CVS Annotate','label="Capabilities"',
 'Web Browser','label="Preferences"','File searching','File Search',
@@ -59,6 +60,7 @@ $replace = array(
 'ブックマーク・ビュー','ローカル履歴','インポート・ウィザード',
 'ヘルプ目次','エクスポート・ウィザード','コンテンツ・タイプ',
 'label="比較/パッチ"','label="アクセシビリティ"','ワーキング・セット',
+'', '虎の巻',
 'テキスト ・ エディタ','label="パースペクティブ"','ヘルプ目次',
 'コンテンツを取得','CVS 注釈','label="機能"',
 'Web ブラウザー','label="設定"','ファイル検索','ファイル検索',
@@ -86,23 +88,23 @@ $replace = array(
 
 $ret = replaceTexts('contexts_AntUI', $search, $replace, 64);
 $ret = replaceTexts('contexts_CommonNavigator', $search, $replace, 3);
-$ret = replaceTexts('contexts_Compare', $search, $replace, 15);
+$ret = replaceTexts('contexts_Compare', $search, $replace, 20);
 $ret = replaceTexts('contexts_ExternalTools', $search, $replace, 10);
 //$ret = replaceTexts('contexts_JSch', $search, $replace, 1);
 $ret = replaceTexts('contexts_Net', $search, $replace, 1);
-$ret = replaceTexts('contexts_P2', $search, $replace, 5);
+$ret = replaceTexts('contexts_P2', $search, $replace, 6);
 $ret = replaceTexts('contexts_Search', $search, $replace, 12);
 $ret = replaceTexts('contexts_SecureStorage', $search, $replace, 6);
-$ret = replaceTexts('contexts_Team', $search, $replace, 5);
-$ret = replaceTexts('contexts_Team_CVS', $search, $replace, 32);
+$ret = replaceTexts('contexts_Team', $search, $replace, 6);
+$ret = replaceTexts('contexts_Team_CVS', $search, $replace, 35);
 $ret = replaceTexts('contexts_Update', $search, $replace, 2);
-$ret = replaceTexts('contexts_UserAssistance', $search, $replace, 2);
+$ret = replaceTexts('contexts_UserAssistance', $search, $replace, 8);
 $ret = replaceTexts('contexts_Workbench', $search, $replace, 255);
 $ret = replaceTexts('toc', $search, $replace, 8);
 $ret = replaceTexts('topics_Concepts', $search, $replace, 28);
-$ret = replaceTexts('topics_GettingStarted', $search, $replace, 19);
-$ret = replaceTexts('topics_Reference', $search, $replace, 67);
-$ret = replaceTexts('topics_Tasks', $search, $replace, 29);
+$ret = replaceTexts('topics_GettingStarted', $search, $replace, 24);
+$ret = replaceTexts('topics_Reference', $search, $replace, 71);
+$ret = replaceTexts('topics_Tasks', $search, $replace, 39);
 $ret = replaceTexts('topics_Tips', $search, $replace, 5);
 $ret = replaceTexts('topics_WhatsNew', $search, $replace, 6);
 

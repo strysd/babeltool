@@ -2,10 +2,13 @@
 /**
  * lists xml files in the target path
  * @param string $dir target path
- * @return array xml files
+ * @return array|false list of xml files, false if not dir.
  */
 function scanFile($dir) {
 	$dir = rtrim($dir, '/') . '/';
+	if(is_dir($dir) === false){
+		return false;
+	}
 	$list = $tmp = array();
 	foreach(glob($dir . '*', GLOB_ONLYDIR) as $childDir) {
 		if ($tmp = scanFile($childDir)) {

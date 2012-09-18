@@ -4,6 +4,10 @@ require_once 'chk_common.php';
 
 $basePath = $targetPath;
 $files = scanFile($basePath);
+if($files === false){
+	echo 'invalid path: ', $basePath;
+	return;
+}
 
 foreach ($files as $file) {
 	parseFile($file);
@@ -40,6 +44,16 @@ function parseFile($file){
 		//various levels exist for topic
 		foreach ($xml->xpath('//topic') as $topic){
 			printLabel($topic['label']);
+		}
+		return;
+	}
+
+	//judges as index if root element is index
+	$isIndex = $xml->xpath('/index');
+	if(count($isIndex) > 0){
+		printFileAttribute($file, 'Index');
+		foreach ($xml->xpath('//topic') as $topic){
+			printLabel($topic['title']);
 		}
 		return;
 	}
@@ -126,7 +140,6 @@ function parseFile($file){
 	}
 
 	//TODO introContent (Git にあり)
-	// index (webtools にあり)
 
 	printFileAttribute($file, 'unsupported');
 	return false;
