@@ -17,14 +17,17 @@
   upd_atf_xmls.php  : org.eclipse.atf.doc
   upd_git_xmls.php  : org.eclipse.egit.doc
   upd_jsdt_xmls.php : org.eclipse.wst.jsdt.doc
+  upd_mylyn_xmls.php    : org.eclipse.mylyn.wikitext.help.ui
   upd_platform_xmls.php : org.eclipse.platform.doc.user
   upd_rse_xmls.php  : org.eclipse.rse.doc.user
   upd_svn_xmls.php  : org.eclipse.team.svn.help
-  upd_wst_xmls.php  : org.eclipse.wst.doc.user
 
 Where you can take Babel data dump?
   see Babel Server weekly mysqldump on
   http://www.eclipse.org/babel/downloads.php
+  
+  or, Amazon Machine Image for Babel in Tokyo region.
+  (cf: http://d.hatena.ne.jp/satoruyoshida/20120929/1348883183 )
 
 Thanks!
 
