@@ -1,7 +1,7 @@
 <?php
 $dbIp = '127.0.0.1';
-$dbUser = 'root';//yourid!!
-$dbPassword = 'thismeanslove';//yourpassword!!
+$dbUser = 'yourid';//yourid!!
+$dbPassword = 'yourpassword';//yourpassword!!
 $dbName = 'babel';
 //$dbEncoding = 'latin1';
 $dbStart = 600000;//can be randomize
