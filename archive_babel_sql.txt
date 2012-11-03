@@ -1,0 +1,11 @@
+create table old_translations as select * from translations limit 1;
+delete from old_translations;
+
+//under consideration  because of foreign key when deleting
+//create table old_strings as select * from strings limit 1;
+//delete from old_strings;
+//create table old_files as select * from files limit 1;
+//delete from old_files;
+//create table old_file_progress as select * from file_progress limit 1;
+//delete from old_file_progress;
+
