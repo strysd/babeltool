@@ -1,0 +1,153 @@
+<?php
+require 'upd_common.php';
+
+//CDT 5.2 Doc help
+$search = array(
+'Importing C/C++ source files into Eclipse',
+'Importing an existing project',
+'Import C/C++ Executable Files','C/C++ Development User Guide',
+'Creating a simple application','Creating a Makefile project',
+'toggle function definition','Importing C/C++ Projects',
+'Property Pages Settings','Creating C/C++ Projects',
+'Building C/C++ Projects',
+'New CDT project wizard','Select Configurations',
+'Select configurations','Referenced Projects',
+'Editing C/C++ files','Creating a C++ file',
+'Creating a makefile','Building a project',
+'Source Lookup Path','Project References',
+'Project File views','Creating a project',
+'Open Declaration ','Editor Preferences',
+'Building projects ','Breakpoint Actions',
+'Debugging projects','Debug information',
+'Tool Chain Editor','Language Mappings',
+'Discovery Options','Building projects',
+'Create a makefile',
+'Open Declaration','Mark Occurrences',
+'Builder Settings','Syntax Coloring',
+'Before you begin',
+'Source Location','Properties view',
+'Path Containers','Makefile Editor',
+'Getting Started',
+'Build Variables','Content Assist',
+'Code Templates','Choose Project',
+'Debug overview',
+'Build Artifact','Binary Parsers',
+'Tool Settings','Library Paths',
+'Include Paths','Error Parsers',
+'label="Documentation"','C/C++ Indexer',
+'C/C++ General','Build Console',
+'Binary Parser','Save Actions',
+'Outline view','Open Element',
+'Make Targets','Make Builder',
+'Error Parser','C/C++ Search',
+'C/C++ Editor',
+'CDT Overview','CDT Projects',
+'label="Refactoring"','Memory View',
+'label="Environment"','C/C++ Build',
+'Build Steps','label="Breakpoints"',
+"What's New",
+'label="References"','File Types',
+'label="Appearance"','label="Templates"',
+'Task Tags',
+'label="Reference"','label="libraries"','label="Libraries"',
+'label="Debugging"','label="Arguments"',
+'label="Settings"','label="Resource"',
+'label="Projects"','label="Debugger"',
+'label="Concepts"',
+'label="Comments"','label="Builders"',
+'label="Behavior"','label="Advanced"','label="Symbols"',
+'label="Rename "',
+'label="Indexer"','label="Folding"',
+'label="Console"','label="Typing"',
+'label="Tasks "',
+'label="Source"','label="Rename"','label="rename"',
+'label="Output"','label="Hovers"',
+'label="Common"','label="Tasks"',
+'label="Legal"','label="Debug"',
+'label="Build"','label="Name"',
+'label="Main"','label="Info"'
+);
+
+$replace = array(
+'C/C++ ソース・ファイルを Eclipse にインポート',
+'既存のプロジェクトをインポート',
+'C/C++ 実行可能ファイルをインポート','C/C++ 開発ユーザーガイド',
+'単純なアプリケーションを作成','Makefile プロジェクトを作成',
+'関数定義を切り替え','C/C++ プロジェクトをインポート',
+'プロパティー・ページ設定','C/C++ プロジェクトを作成',
+'C/C++ プロジェクトをビルド',
+'新規 CDT プロジェクト・ウィザード','構成を選択',
+'構成を選択','参照されるプロジェクト',
+'C/C++ ファイルを編集','C/C++ ファイルを作成',
+'makefile を作成','プロジェクトをビルド',
+'ソース検索パス','プロジェクト参照',
+'プロジェクト・ファイル・ビュー','プロジェクトを作成',
+'宣言を開く','エディター設定',
+'プロジェクトをビルド','ブレークポイント・アクション',
+'プロジェクトをデバッグ','デバッグ情報',
+'Tool chain エディター','言語マッピング',
+'検出オプション','プロジェクトをビルド',
+'makefile を作成',
+'宣言を開く','出現箇所のマーク',
+'ビルダー設定','構文の色の指定',
+'始める前に',
+'ソース・ロケーション','プロパティービュー',
+'パス・コンテナー','Makefile エディター',
+'はじめに',
+'ビルド変数','コンテンツ・アシスト',
+'コード・テンプレート','プロジェクトの選択',
+'デバッグ概要',
+'ビルド成果物','バイナリー・パーサー',
+'ツール設定','ライブラリーパス',
+'インクルード・パス','エラー・パーサー',
+'label="ドキュメンテーション"','C/C++ インデクサー',
+'C/C++ 一般','ビルド・コンソール',
+'バイナリーパーサー','保管アクション',
+'アウトライン・ビュー','要素を開く',
+'Make ターゲット','Make ビルダー',
+'エラー・パーサー','C/C++ 検索',
+'C/C++ エディター',
+'CDT 概要','CDT プロジェクト',
+'label="リファクタリング"','メモリービュー',
+'label="環境"','C/C++ ビルド',
+'ビルド・ステップ','label="ブレークポイント"',
+'新機能',
+'label="参照"','ファイル・タイプ',
+'label="外観"','label="テンプレート"',
+'タスク・タグ',
+'label="参照"','label="ライブラリー"','label="ライブラリー"',
+'label="デバッグ"','label="引数"',
+'label="設定"','label="リソース"',
+'label="プロジェクト"','label="デバッガー"',
+'label="コンセプト"',
+'label="コメント"','label="ビルダー"',
+'label="振る舞い"','label="詳細設定"','label="シンボル"',
+'label="名前を変更"',
+'label="インデクサー"','label="折りたたみ"',
+'label="コンソール"','label="入力"',
+'label="タスク"',
+'label="ソース"','label="名前を変更"','label="名前を変更"',
+'label="出力"','label="吹き出し"',
+'label="共通"','label="タスク"',
+'label="リーガル"','label="デバッグ"',
+'label="ビルド"','label="名前"',
+'label="メイン"','label="情報"'
+);
+
+$ret = replaceTexts('contexts_CDT', $search, $replace, 99);
+$ret = replaceTexts('contexts_CDT_DEBUGGER', $search, $replace, 12);
+//$ret = replaceTexts('contexts_CDT_DEBUGGER_MI', $search, $replace, 0);
+$ret = replaceTexts('contexts_CDT_LAUNCH', $search, $replace, 1);
+$ret = replaceTexts('contexts_CDT_make', $search, $replace, 20);
+$ret = replaceTexts('toc', $search, $replace, 9);
+$ret = replaceTexts('topics_Concepts', $search, $replace, 22);
+$ret = replaceTexts('topics_Getting_Started', $search, $replace, 9);
+$ret = replaceTexts('topics_Reference', $search, $replace, 71);
+$ret = replaceTexts('topics_Tasks', $search, $replace, 22);
+$ret = replaceTexts('cheatsheets/cs_cdt_basic', $search, $replace, 4);
+$ret = replaceTexts('cheatsheets/cs_cdt_import_project', $search, $replace, 5);
+//$ret = replaceTexts('intro/cdtIntro', $search, $replace, 0);
+//$ret = replaceTexts('intro/cdtTutorial', $search, $replace, 0);
+$ret = replaceTexts('intro/cdtWhatsnew', $search, $replace, 1);
+
+echo '<BR>end';

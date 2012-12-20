@@ -5,7 +5,7 @@ if(!$db_con){
 	echo 'connection error:', mysql_error();
 	return;
 }
-if(!mysql_select_db('test', $db_con)){
+if(!mysql_select_db($db_schema, $db_con)){
 	echo 'selection error:', mysql_error();
 	mysql_close($db_con);
 	exit;
