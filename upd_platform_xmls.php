@@ -1,9 +1,9 @@
 <?php
 require 'upd_common.php';
 
-//Platform 4.2 Doc help
+//Platform 4.2.0 Doc help
 $search = array(
-'Delete the selected item.',
+'Replace with regular expressions','Delete the selected item.',
 'Available Software Sites','Show Disabled Features','Editing Ant Buildfiles',
 'Uninstalling Software','Startup and Shutdown','Installation Details',
 'Workbench User Guide',
@@ -17,11 +17,11 @@ $search = array(
 'Exporting files','Importing files',
 'Tips and Tricks','Properties view','Getting Started',
 'New File Wizard','Somewhat quiet','Secure Storage',
-'The Search view',
-'Basic tutorial',
-'Path Variables','label="Install/Update"','External Tools',
-'Bookmarks View','Opening files',
-'Local History','Import Wizard',
+'The Search view','Text searching','Search preferences',
+'Basic tutorial','Path Variables',
+'External Tools',
+'Bookmarks View','Opening files','local history',
+'Local History','Import Wizard','Local history',
 'Help Contents','Export Wizard','Content Types',
 'label="Compare/Patch"','label="Accessibility"','Working Sets',
 'The Workbench',
@@ -32,13 +32,14 @@ $search = array(
 'Text Editors','label="Perspectives"',
 'Outline view','Help Content',
 'Get Contents','CVS Annotate','label="Capabilities"',
-'Web Browser','label="Preferences"','File searching','File Search',
+'Web Browser','label="Preferences"','File searching',
+'File Search','File search',
 'Search view',
 'Editor Area','CVS Console','Build Order',
-'Ant Support','Tasks View',
+'Ant Editor','Ant Support','Tasks View',
 'label="Annotations"','label="Workspaces"',"What's New",
 'label="Watch/Edit"','Very quiet','Quick Diff',
-'Fast Views',
+'Fast Views','Error Log',
 'label="Committing"','label="Appearance"','Ant Editor',
 'label="Workspace"','label="Workbench"','label="Searching"',
 'label="Resources"','label="Replacing"','label="Reference"',
@@ -59,7 +60,7 @@ $search = array(
 );
 
 $replace = array(
-'選択した要素を削除。',
+'正規表現で置換','選択した要素を削除。',
 '利用できるソフトウェア・サイト','使用できないフィーチャーを表示','Ant ビルド・ファイルを編集',
 'ソフトウェアをアンインストール','開始およびシャットダウン','インストール詳細',
 'ワークベンチ・ユーザーガイド',
@@ -73,10 +74,11 @@ $replace = array(
 'ファイルをエクスポート','ファイルをインポート',
 'ヒント','プロパティービュー','はじめに',
 '新規ファイルウィザード','警告とエラー','セキュリティで保護されたストレージ',
-'検索ビュー','基本チュートリアル',
-'パス変数','label="インストール/更新"','外部ツール',
-'ブックマーク・ビュー','ファイルをオープン',
-'ローカル履歴','インポート・ウィザード',
+'検索ビュー','テキスト検索','検索設定',
+'基本チュートリアル','パス変数',
+'外部ツール',
+'ブックマーク・ビュー','ファイルをオープン','ローカル履歴',
+'ローカル履歴','インポート・ウィザード','ローカル履歴',
 'ヘルプ目次','エクスポート・ウィザード','コンテンツ・タイプ',
 'label="比較/パッチ"','label="アクセシビリティ"','ワーキング・セット',
 'ワークベンチ',
@@ -87,13 +89,14 @@ $replace = array(
 'テキスト ・ エディタ','label="パースペクティブ"',
 'アウトライン・ビュー','ヘルプ目次',
 'コンテンツを取得','CVS 注釈','label="機能"',
-'Web ブラウザー','label="設定"','ファイル検索','ファイル検索',
+'Web ブラウザー','label="設定"','ファイル検索',
+'ファイル検索','ファイル検索',
 '検索ビュー',
 'エディターエリア','CVS コンソール','ビルド順序',
-'Ant サポート','タスク・ビュー',
+'Ant エディター','Ant サポート','タスク・ビュー',
 'label="注釈"','label="ワークスペース"','新機能',
 'label="監視/編集"','重大エラー','クイック Diff',
-'高速ビュー',
+'高速ビュー','エラーログ',
 'label="コミット"','label="外観"','Ant エディター',
 'label="ワークスペース"','label="ワークベンチ"','label="検索"',
 'label="リソース"','label="置換"','label="リファレンス"',
@@ -120,12 +123,13 @@ $ret = replaceTexts('contexts_ExternalTools', $search, $replace, 13);
 //$ret = replaceTexts('contexts_JSch', $search, $replace, 0);
 $ret = replaceTexts('contexts_Net', $search, $replace, 1);
 $ret = replaceTexts('contexts_P2', $search, $replace, 6);
-$ret = replaceTexts('contexts_Search', $search, $replace, 16);
+$ret = replaceTexts('contexts_Search', $search, $replace, 23);
 $ret = replaceTexts('contexts_SecureStorage', $search, $replace, 6);
 $ret = replaceTexts('contexts_Team', $search, $replace, 7);
 $ret = replaceTexts('contexts_Team_CVS', $search, $replace, 42);
 $ret = replaceTexts('contexts_UserAssistance', $search, $replace, 8);
-$ret = replaceTexts('contexts_Workbench', $search, $replace, 280);
+$ret = replaceTexts('contexts_Workbench', $search, $replace, 286);
+//$ret = replaceTexts('pom', $search, $replace, 0);
 $ret = replaceTexts('toc', $search, $replace, 8);
 $ret = replaceTexts('topics_Concepts', $search, $replace, 34);
 $ret = replaceTexts('topics_GettingStarted', $search, $replace, 36);

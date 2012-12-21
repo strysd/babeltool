@@ -1,7 +1,7 @@
 <?php
 require 'upd_common.php';
 
-//SVN 0.7.9
+//SVN 0.7.9 - 1.0
 $search = array(
 'Main feature differences between SVN® and CVS',
 'About Subversive and Subversive User Guide',

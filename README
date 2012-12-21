@@ -15,12 +15,12 @@
   and output to conv_out.
 
   upd_atf_xmls.php  : org.eclipse.atf.doc
+  upd_cdt_xmls.php  : org.eclipse.cdt.doc.user
   upd_git_xmls.php  : org.eclipse.egit.doc
-  upd_jsdt_xmls.php : org.eclipse.wst.jsdt.doc
   upd_mylyn_xmls.php    : org.eclipse.mylyn.wikitext.help.ui
   upd_platform_xmls.php : org.eclipse.platform.doc.user
-  upd_rse_xmls.php  : org.eclipse.rse.doc.user
   upd_svn_xmls.php  : org.eclipse.team.svn.help
+  upd_wst_*.php  : org.eclipse.wst.*
 
 Where you can take Babel data dump?
   see Babel Server weekly mysqldump on
