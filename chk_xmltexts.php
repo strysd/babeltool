@@ -25,13 +25,13 @@ function parseFile($file){
 	//judges as unsupported file by root element
 	$isPlugin = $xml->xpath('/plugin');
 	if(count($isPlugin) > 0){
-		printFileAttribute($file, 'unsupported');
+		printFileAttribute($file, 'plugin definition file is not supported');
 		return;
 	}
 
 	$isProject = $xml->xpath('/project');
 	if(count($isProject) > 0){
-		printFileAttribute($file, 'unsupported');
+		printFileAttribute($file, 'Ant build file is not supported');
 		return;
 	}
 
@@ -139,7 +139,7 @@ function parseFile($file){
 		return;
 	}
 
-	//TODO introContent (Git にあり)
+	//TODO introContent (in Git)
 
 	printFileAttribute($file, 'unsupported');
 	return false;

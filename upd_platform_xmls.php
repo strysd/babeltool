@@ -19,12 +19,12 @@ $search = array(
 'New File Wizard','Somewhat quiet','Secure Storage',
 'The Search view','Text searching','Search preferences',
 'Basic tutorial','Path Variables',
-'External Tools',
-'Bookmarks View','Opening files','local history',
-'Local History','Import Wizard','Local history',
+'External Tools','Install/Update',
+'Bookmarks View','Opening files',
+'local history','Import Wizard','history view',
 'Help Contents','Export Wizard','Content Types',
 'label="Compare/Patch"','label="Accessibility"','Working Sets',
-'The Workbench',
+'The Workbench','other editors',
 //意図的に空白に変換
 'Working with ',
 'Problems view',
@@ -33,8 +33,7 @@ $search = array(
 'Outline view','Help Content',
 'Get Contents','CVS Annotate','label="Capabilities"',
 'Web Browser','label="Preferences"','File searching',
-'File Search','File search',
-'Search view',
+'File Search','Search view','Text search',
 'Editor Area','CVS Console','Build Order',
 'Ant Editor','Ant Support','Tasks View',
 'label="Annotations"','label="Workspaces"',"What's New",
@@ -76,12 +75,12 @@ $replace = array(
 '新規ファイルウィザード','警告とエラー','セキュリティで保護されたストレージ',
 '検索ビュー','テキスト検索','検索設定',
 '基本チュートリアル','パス変数',
-'外部ツール',
-'ブックマーク・ビュー','ファイルをオープン','ローカル履歴',
-'ローカル履歴','インポート・ウィザード','ローカル履歴',
+'外部ツール','インストール/更新',
+'ブックマーク・ビュー','ファイルをオープン',
+'ローカル履歴','インポート・ウィザード','履歴ビュー',
 'ヘルプ目次','エクスポート・ウィザード','コンテンツ・タイプ',
 'label="比較/パッチ"','label="アクセシビリティ"','ワーキング・セット',
-'ワークベンチ',
+'ワークベンチ','その他のエディター',
 //意図的に空白に変換
 '',
 '問題ビュー',
@@ -90,8 +89,7 @@ $replace = array(
 'アウトライン・ビュー','ヘルプ目次',
 'コンテンツを取得','CVS 注釈','label="機能"',
 'Web ブラウザー','label="設定"','ファイル検索',
-'ファイル検索','ファイル検索',
-'検索ビュー',
+'ファイル検索','検索ビュー','テキスト検索',
 'エディターエリア','CVS コンソール','ビルド順序',
 'Ant エディター','Ant サポート','タスク・ビュー',
 'label="注釈"','label="ワークスペース"','新機能',
@@ -122,19 +120,19 @@ $ret = replaceTexts('contexts_Compare', $search, $replace, 27);
 $ret = replaceTexts('contexts_ExternalTools', $search, $replace, 13);
 //$ret = replaceTexts('contexts_JSch', $search, $replace, 0);
 $ret = replaceTexts('contexts_Net', $search, $replace, 1);
-$ret = replaceTexts('contexts_P2', $search, $replace, 6);
-$ret = replaceTexts('contexts_Search', $search, $replace, 23);
+$ret = replaceTexts('contexts_P2', $search, $replace, 8);
+$ret = replaceTexts('contexts_Search', $search, $replace, 24);
 $ret = replaceTexts('contexts_SecureStorage', $search, $replace, 6);
 $ret = replaceTexts('contexts_Team', $search, $replace, 7);
-$ret = replaceTexts('contexts_Team_CVS', $search, $replace, 42);
+$ret = replaceTexts('contexts_Team_CVS', $search, $replace, 48);
 $ret = replaceTexts('contexts_UserAssistance', $search, $replace, 8);
 $ret = replaceTexts('contexts_Workbench', $search, $replace, 286);
 //$ret = replaceTexts('pom', $search, $replace, 0);
 $ret = replaceTexts('toc', $search, $replace, 8);
 $ret = replaceTexts('topics_Concepts', $search, $replace, 34);
-$ret = replaceTexts('topics_GettingStarted', $search, $replace, 36);
-$ret = replaceTexts('topics_Reference', $search, $replace, 74);
-$ret = replaceTexts('topics_Tasks', $search, $replace, 47);
+$ret = replaceTexts('topics_GettingStarted', $search, $replace, 37);
+$ret = replaceTexts('topics_Reference', $search, $replace, 76);
+$ret = replaceTexts('topics_Tasks', $search, $replace, 48);
 $ret = replaceTexts('topics_Tips', $search, $replace, 5);
 $ret = replaceTexts('topics_WhatsNew', $search, $replace, 5);
 

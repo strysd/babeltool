@@ -15,7 +15,7 @@ $search = array(
 'Link with Editor','Show in History','Filter Settings',
 'Create Branch...','Branch Selection','Create Patch...',
 'Aborting Rebase','Project import','Commit Message',
-'Local Branches',
+'Getting Started','Local Branches',
 //意図的に空白にする
 'Working with ',
 'Wrap Comments',
@@ -24,7 +24,8 @@ $search = array(
 'History View','Command Line',
 'Compare Mode','label="Repository"','label="Navigation"',
 'label="Committing"','label="Reference"','label="Branching"',
-'label="Snippets"','Push URI',
+'User Guide',
+'label="Snippets"','Push URI','label="Concepts"',
 'label="Overview"','label="Features"',
 'label="Checkout"','label="Branches"','label="Remotes"',
 'label="Refresh"','label="Merging"','label="Models"',
@@ -48,7 +49,7 @@ $replace = array(
 'エディターにリンク','ヒストリーに表示','フィルター設定',
 'ブランチを作成...','ブランチ選択','パッチを作成...',
 'リベースを中止','プロジェクト・インポート','コミット・メッセージ',
-'ローカル・ブランチ',
+'はじめに','ローカル・ブランチ',
 //意図的に空白にする
 '',
 'コメントを折り返す',
@@ -57,7 +58,8 @@ $replace = array(
 '履歴ビュー','コマンド行',
 '比較モード','label="リポジトリー"','label="ナビゲーション"',
 'label="コミット中"','label="参照"','label="ブランチ"',
-'label="スニペット"','URI をプッシュ',
+'ユーザーガイド',
+'label="スニペット"','URI をプッシュ','label="コンセプト"',
 'label="概要"','label="フィーチャー"',
 'label="チェックアウト"','label="ブランチ"','label="リモート"',
 'label="更新"','label="マージ"','label="モデル"',
@@ -71,9 +73,9 @@ $replace = array(
 $ret = replaceTexts('contexts', $search, $replace, 4);
 $ret = replaceTexts('cheatsheets/clone', $search, $replace, 4);
 $ret = replaceTexts('cheatsheets/push', $search, $replace, 5);
-$ret = replaceTexts('help/toc', $search, $replace, 92);
-//$ret = replaceTexts('intro/overviewExtensionContent', $search, $replace, 0);
-//$ret = replaceTexts('intro/tutorialsExtensionContent', $search, $replace, 0);
+$ret = replaceTexts('help/toc', $search, $replace, 98);
+$ret = replaceTexts('intro/overviewExtensionContent', $search, $replace, 1);
+$ret = replaceTexts('intro/tutorialsExtensionContent', $search, $replace, 1);
 //$ret = replaceTexts('intro/whatsnewExtensionContent', $search, $replace, 0);
 
 echo '<BR>end';
