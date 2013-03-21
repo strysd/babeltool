@@ -11,7 +11,7 @@ $search = array(
 "Adding a part to a message",
 "Creating a new WSDL file",
 "Importing a WSDL file",
-//"Setting a port type",
+"Setting a port type",
 "Adding an operation",
 "Editing WSDL files",
 "Setting a binding",
@@ -28,7 +28,7 @@ $replace = array(
 "メッセージにパートを追加",
 "WSDL ファイルを新規作成",
 "WSDL ファイルをインポート",
-//"Setting a port type",
+"ポートの種類を設定",
 "操作を追加",
 "WSDL ファイルを編集",
 "バインティングを設定",
@@ -36,8 +36,8 @@ $replace = array(
 "メッセージを追加",
 );
 
-$ret = replaceTexts('org.eclipse.wst.wsdl.ui.doc.userindex', $search, $replace, 24);
+$ret = replaceTexts('org.eclipse.wst.wsdl.ui.doc.userindex', $search, $replace, 26);
 $ret = replaceTexts('wswsdleditorc_toc', $search, $replace, 1);
-$ret = replaceTexts('wswsdleditort_toc', $search, $replace, 12);
+$ret = replaceTexts('wswsdleditort_toc', $search, $replace, 13);
 
 echo '<BR>end';

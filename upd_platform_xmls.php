@@ -12,6 +12,7 @@ $search = array(
 'Password Recovery','Label Decorations','File Associations',
 'Copying Resources','Automatic Updates','Resource Filters',
 'Editors and views','External editors',
+'platform overview',
 'Project Explorer','Linked Resources','CVS Repositories',
 'Colors and Fonts','Virtual Folders',
 'Exporting files','Importing files',
@@ -48,6 +49,7 @@ $search = array(
 'label="Spelling"','label="Renaming"','label="renaming"',
 'label="Platform"','label="Features"','label="Branches"',
 'label="Concepts"','label="Copying"',
+'label="Tracing"',
 'label="Welcome"','label="Markers"','label="General"',
 'label="Editors"','label="Editing"','label="Update"',
 'label="Search"','label="Finish"','label="Editor"',
@@ -68,6 +70,7 @@ $replace = array(
 'パスワードを復元','ラベル装飾','ファイルを関連付け',
 'リソースをコピー','自動更新','リソース・フィルター',
 'エディターとビュー','外部エディター',
+'プラットフォーム概要',
 'プロジェクト・エクスプローラー','リンクされたリソース','CVS リポジトリー',
 '色とフォント','仮想フォルダー',
 'ファイルをエクスポート','ファイルをインポート',
@@ -104,6 +107,7 @@ $replace = array(
 'label="スペル"','label="名前を変更"','label="名前を変更"',
 'label="プラットフォーム"','label="フィーチャー"','label="ブランチ"',
 'label="コンセプト"','label="コピー"',
+'label="トレース"',
 'label="ようこそ"','label="マーカー"','label="全般"',
 'label="エディター"','label="編集"','label="更新"',
 'label="検索"','label="終了"','label="エディター"',
@@ -128,10 +132,10 @@ $ret = replaceTexts('contexts_Team_CVS', $search, $replace, 48);
 $ret = replaceTexts('contexts_UserAssistance', $search, $replace, 8);
 $ret = replaceTexts('contexts_Workbench', $search, $replace, 286);
 //$ret = replaceTexts('pom', $search, $replace, 0);
-$ret = replaceTexts('toc', $search, $replace, 8);
+$ret = replaceTexts('toc', $search, $replace, 9);
 $ret = replaceTexts('topics_Concepts', $search, $replace, 34);
 $ret = replaceTexts('topics_GettingStarted', $search, $replace, 37);
-$ret = replaceTexts('topics_Reference', $search, $replace, 76);
+$ret = replaceTexts('topics_Reference', $search, $replace, 77);
 $ret = replaceTexts('topics_Tasks', $search, $replace, 48);
 $ret = replaceTexts('topics_Tips', $search, $replace, 5);
 $ret = replaceTexts('topics_WhatsNew', $search, $replace, 5);
